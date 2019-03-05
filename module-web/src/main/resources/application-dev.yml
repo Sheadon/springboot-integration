@@ -1,0 +1,10 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /springboot-integration
+  tomcat:
+    uri-encoding: utf-8
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Dao.xml
+  type-aliases-package: com.sheadon.entity
