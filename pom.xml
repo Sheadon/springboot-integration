@@ -29,6 +29,8 @@
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.locales>zh_CN</project.build.locales>
+
+        <tomcat.version>8.5.38</tomcat.version>
     </properties>
 
 
@@ -124,12 +126,24 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-juli</artifactId>
+            <version>${tomcat.version}</version>
+        </dependency>
+
         <!-- LomBok插件 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
 
+        <!-- Druid数据库连接池 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.14</version>
+        </dependency>
     </dependencies>
 
 
@@ -143,7 +157,6 @@
                     <encoding>${maven.compiler.encoding}</encoding>
                 </configuration>
             </plugin>
-
 
 
             <plugin>
