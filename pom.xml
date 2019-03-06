@@ -91,6 +91,12 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- 添加热部署依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
+
         <!-- MySql -->
         <dependency>
             <groupId>mysql</groupId>
