@@ -15,6 +15,9 @@ spring:
     url: jdbc:mysql://localhost:3306/springboot-integration?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2B8
     username: root
     password: 101013sunX
+
+
+
     tomcat:
       max-wait: 60000
       initial-size: 5
@@ -27,6 +30,27 @@ spring:
       test-on-borrow: false
       test-on-return: false
       connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+    druid:
+      # 打开PSCache，并且指定每个连接上PSCache的大小
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      filters: stat,wall,log4j
+      # 合并多个DruidDataSource的监控数据
+      use-global-data-source-stat: true
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      # 配置获取连接等待超时的时间
+      max-wait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      validation-query: SELECT 1 FROM DUAL
+      # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+
   jpa:
     show-sql: true
     hibernate:
